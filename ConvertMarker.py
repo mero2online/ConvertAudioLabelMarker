@@ -1,19 +1,6 @@
 import os
-import datetime
 
-
-def readLocalFile(filename):
-    f = open(filename, 'r')
-    txt = f.read()
-    f.close()
-
-    return txt
-
-
-def writeLocalFile(filename, txt):
-    f = open(filename, 'w')
-    f.write(txt)
-    f.close()
+from HelperFunc import readLocalFile, writeLocalFile
 
 
 def GetDataFromColumn(splitted):
@@ -38,23 +25,23 @@ def getMilliSeconds(time):
     return milliSeconds
 
 
-filename = '002.csv'
-txt = readLocalFile(filename)
-pathOnly, file_extension = os.path.splitext(filename)
+def ConvertMarker(filename):
+    txt = readLocalFile(filename)
+    pathOnly, file_extension = os.path.splitext(filename)
 
-splitted = [i.split('\t') for i in txt.splitlines()]
-times, numbers = GetDataFromColumn(splitted)
+    splitted = [i.split('\t') for i in txt.splitlines()]
+    times, numbers = GetDataFromColumn(splitted)
 
-finalData = []
+    finalData = []
 
-for idx, time in enumerate(times):
-    if idx > 0:
-        startTime = getMilliSeconds(time)
+    for idx, time in enumerate(times):
+        if idx > 0:
+            startTime = getMilliSeconds(time)
 
-        name = numbers[idx]
+            name = numbers[idx]
 
-        final = f'{startTime}\t{startTime}\t{name}'
-        finalData.append(final)
+            final = f'{startTime}\t{startTime}\t{name}'
+            finalData.append(final)
 
-writeLocalFile(f'{pathOnly}_out.txt', '\n'.join(finalData))
-print(finalData)
+    writeLocalFile(f'{pathOnly}_out.txt', '\n'.join(finalData))
+    print(finalData)
