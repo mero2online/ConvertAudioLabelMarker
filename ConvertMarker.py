@@ -25,9 +25,9 @@ def getMilliSeconds(time):
     return milliSeconds
 
 
-def ConvertMarker(filename):
-    txt = readLocalFile(filename)
-    pathOnly, file_extension = os.path.splitext(filename)
+def ConvertMarker(fullFilePath):
+    txt = readLocalFile(fullFilePath)
+    pathOnly, file_extension = os.path.splitext(fullFilePath)
 
     splitted = [i.split('\t') for i in txt.splitlines()]
     times, numbers = GetDataFromColumn(splitted)
