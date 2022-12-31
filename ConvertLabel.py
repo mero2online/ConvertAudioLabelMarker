@@ -47,4 +47,3 @@ def ConvertLabel(fullFilePath):
         finalData.append(final)
 
     writeLocalFile(f'{pathOnly}_out.csv', '\n'.join(finalData))
-    print(finalData)

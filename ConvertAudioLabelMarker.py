@@ -3,11 +3,13 @@ from tkinter import *
 from tkinter import messagebox
 import os
 
+from settings import appVersionNo
 from ConvertLabel import ConvertLabel
 from ConvertMarker import ConvertMarker
 
 filetypes = (
-    ('All files', '*.*'),
+    ('Label or Marker', ['*.txt', '*.csv']),
+    # ('All files', '*.*'),
 )
 
 
@@ -30,7 +32,7 @@ browseBtn = Button(root, text="Browse File", background='#633192', foreground='#
                    command=browseFile)
 browseBtn.place(x=5, y=5, width=100, height=37)
 
-root.title('ConvertAudioLabelMarker')
+root.title(f'ConvertAudioLabelMarker {appVersionNo}')
 root.geometry('500x300')
 root.configure(bg='#000')
 

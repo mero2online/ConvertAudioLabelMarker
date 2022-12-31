@@ -44,4 +44,3 @@ def ConvertMarker(fullFilePath):
             finalData.append(final)
 
     writeLocalFile(f'{pathOnly}_out.txt', '\n'.join(finalData))
-    print(finalData)
