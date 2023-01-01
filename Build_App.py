@@ -29,9 +29,9 @@ PyInstaller.__main__.run([
     f'-n{outputFileName}',
     '--onefile',
     '--windowed',
-    # '--add-data', 'src;src',
-    # '-i', ".\src\\abbr.ico",
-    # '--splash', ".\src\\abbr.png",
+    '--add-data', 'src;src',
+    '-i', ".\src\\label_icon.ico",
+    '--splash', ".\src\\label_icon.png",
     '--exclude-module', 'matplotlib'
 ])
 
